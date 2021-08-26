@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facultet site </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Limelight&display=swap" rel="stylesheet">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Icons only-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+          integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+          crossorigin="anonymous"/>
+
+    <!-- CSS-->
+    {#    <link rel="stylesheet" href="css/style.css">#}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+<div class="parent-container">
+    <div class="container">
+        <!-- Header section-->
+        <header class="header" id="header">
+            <!-- <div class="container"> -->
+            <div class="header-contacts">
+                <div class="header-socials">
+                    <div class="header-social__item">
+                        <a href="##">
+                            <img src="{% static 'img/ic_facebook.svg' %}" alt="Facebook">
+                        </a>
+                    </div>
+                    <div class="header-social__item">
+                        <a href="##">
+                            <img src="{% static 'img/ic_instagram.svg' %}" alt="Instagram">
+                        </a>
+                    </div>
+                    <div class="header-social__item">
+                        <a href="##">
+                            <img src="{% static 'img/ic_telegram.svg' %}" alt="Telegram">
+                        </a>
+                    </div>
+                </div>
+                <div class="header-brand">
+                    <a href="#"><img src="{% static 'img/logo.png' %}" alt="Brand"></a>
+                </div>
+                <div class="header-phone">
+                    <a href="tel:+998712999999"><strong>Тел: +99871 299 99 99</strong></a>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <ul class="header-nav__items">
+                    <li class="header-nav__item">
+                        <a href="#about-me">О нас</a>
+                    </li>
+                    <li class="header-nav__item">
+                        <a href="#science">Наука</a>
+                    </li>
+                    <li class="header-nav__item">
+                        <a href="#application">Абитуриентам</a>
+                    </li>
+                    <li class="header-nav__item">
+                        <a href="#questions">Вопросы и ответы</a>
+                    </li>
+                    <li class="header-nav__item">
+                        <a href="#contact">Контакты</a>
+                    </li>
+                </ul>
+                <div class="langs">
+                    <select name="lang" id="ru">
+                        <option value="ru"><a href="##">RU</a></option>
+                        <option value="en"><a href="##">EN</a></option>
+                    </select>
+                </div>
+            </nav>
+            <!-- </div> -->
+        </header>
+        <div class="burger-menu max-767">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="logo"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about-me">О нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#science">Наука</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#application">Абитуриентам</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#questions">Вопросы и ответы</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Контакты</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        <!-- /Header section-->
+
+        <!-- Main section-->
+        <section class="main-section" id="main-section">
+            <div class="main-section__info">
+                <div class="main-section__text">
+                    <h4 class="main-section__facultet">Facultet</h4>
+{#                    <h1 class="section-title"><span class="blue-circle">•</span>International development</h1>#}
+                    <h1 class="section-title"><span class="blue-circle">•</span>{{ firstblock.text_facultet1 }}</h1>
+                    <p class="section-text">
+                        {{ firstblock.description_facultet1 }}
+                    </p>
+                </div>
+                <div class="main-section__img">
+                    <img src="{{ firstblock.picture_facultet1.url }}" alt="PC">
+                </div>
+                <div class="max-575">
+                    <p class="section-text">
+                        {{ firstblock.description_facultet1 }}
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- /Main section-->
+
+        <!-- About section-->
+        <section class="about-me" id="about-me">
+            <!-- <div class="container"> -->
+            <div class="about-me-section1">
+                <div class="about-me__info1">
+                    <div class="about-me__info1-facultet">
+                        <h2 class="section-title "><span class="blue-circle">•</span>{{ firstblock.text_facultet2 }}</h2>
+                        <p class="section-text">
+                            {{ firstblock.description_facultet2 }}
+                        </p>
+                    </div>
+                    <div class="about-me__info1-follow">
+                        <div class="about-me__info1-follow-img">
+                            <img src="{{ firstblock.picture_facultet2.url }}" alt="Sumka">
+                        </div>
+                        <div class="about-me__info1-follow-item">
+                            <h4 class="about-me-title">Действует на протяжении <br/><span class="year-20">{{ firstblock.years }}</span>
+                                лет
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="max-575">
+                        <p class="section-text">
+                            {{ firstblock.description_facultet2 }}
+                        </p>
+                    </div>
+                </div>
+                <div class="about-me__info2">
+                    <div class="about-me__info2-img">
+                        <img src="{{ firstblock.picture_facultet3.url }}" alt="Colisey">
+                    </div>
+                    <div class="about-me__info2-text">
+                        <h4 class="about-me-title">{{ firstblock.text_facultet3 }}</h4>
+                        <p class="section-text">
+                            {{ firstblock.description_facultet3 }}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Rukovodstvo-->
+                        <div class="rukovodstvo">
+                            <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Руководство
+                            </h1>
+                            <div id="carouselExampleIndicators1" class="carousel slide carusel-button" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0"
+                                            class="active slide-button" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" class="slide-button"
+                                            data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" class="slide-button"
+                                            data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" class="slide-button"
+                                            data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" class="slide-button"
+                                            data-bs-slide-to="4" aria-label="Slide 0"></button>
+                                </div>
+                                <div class="carousel-inner justify-content-center ">
+                                    {% for managemen in management %}
+                                    <div class="carousel-item {% cycle 'active' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' %}">
+                                        <div class="rukovodstvo-item">
+                                            <img src="{{ managemen.picture.url }}" alt="image3">
+                                            <div class="rukovodstvo-item__nobel">
+                                                <h4 class="second-title">
+                                                    {{ managemen.name }}
+                                                    <div class="nobel-info-575">
+                                                        {% for award in managemen.awards.all %}
+                                                            <div class="nobel-item-575">
+                                                                {{ award.title }}
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </h4>
+                                                <div class="nobel-info">
+                                                    {% for award in managemen.awards.all %}
+                                                        <h5 class="nobel-subtitle">{{ award.title }}</h5>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
+                                        data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
+                                        data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+            <!-- Kafedra-->
+            <div class="kafedra">
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>КАФЕДРЫ</h1>
+                {% for departamen in departament %}
+                <div class="kafedra-bar">
+                    <h1 class="section-title mb-20">
+                        <span class="blue-circle">•</span>{{ departamen.title }}
+                    </h1>
+                    <div class="kafedra-info">
+                        <div class="kafedra-info__item1">
+                            <img src="{{ departamen.picture.url }}" alt="image">
+                            <div>
+                                <h4 class="second-title"><span class="blue-circle">•</span>{{ departamen.one_list }}</h4>
+                                <p class="section-text">
+                                    {{ departamen.text1 }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="kafedra-info__item2">
+                            <p class="section-text">
+                                {{ departamen.text2 }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- /Kafedra-->
+
+
+            <!-- Professors-->
+            <div class="professor">
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Профессоры</h1>
+                <div id="carouselExampleIndicators2" class="carousel slide carusel-button" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0"
+                                class="active slide-button" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" class="slide-button"
+                                data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" class="slide-button"
+                                data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" class="slide-button"
+                                data-bs-slide-to="3" aria-label="Slide 0"></button>
+                    </div>
+                    <div class="carousel-inner justify-content-center ">
+
+                        {% for professor in professors %}
+
+                        <div class="carousel-item {% cycle 'active' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' %}">
+                            <div class="professor-item">
+                                <div class="professor-item__info">
+                                    <h4 class="second-title">{{ professor.name }}</h4>
+                                    <p class="section-text">
+                                        {{ professor.post }}
+                                    </p>
+                                    <div>
+                                        {% for award in professor.awards.all %}
+                                            <h5 class="nobel-subtitle">{{ award.title }}</h5>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="professor-item__img">
+                                    <img src="{{ professor.photo.url }}" alt="image">
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <!-- /Professors -->
+
+            <!-- Studied -->
+            <div class="studied">
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>У нас учились</h1>
+                <div id="carouselExampleIndicators3" class="carousel slide carusel-button" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0"
+                                class="active slide-button" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators3" class="slide-button"
+                                data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators3" class="slide-button"
+                                data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators3" class="slide-button"
+                                data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner justify-content-center ">
+
+                        {% for student in students %}
+
+                        <div class="carousel-item {% cycle 'active' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' %}">
+                            <div class="studied-item">
+                                <div class="studied-item__info">
+                                    <h4 class="second-title">{{ student.name }}</h4>
+                                    <p class="section-text">
+                                        {{ student.post }}
+                                    </p>
+                                    <div>
+                                        {% for award in student.awards.all %}
+                                            <h5 class="nobel-subtitle">{{ award.title }}</h5>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="studied-item__img">
+                                    <img src="{{ student.photo.url }}" alt="image">
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section> <!-- /Studied  -->
+    </div>
+
+
+    <!-- Building -->
+    <div class="container-fluid">
+        <div class="building">
+            <div class="container">
+                <h1 class="section-title"><span class="blue-circle">•</span>ЧТО ВАС ОЖИДАЕТ В НАШЕЙ БОЛЬШОЙ
+                    БИБЛИОТЕКЕ</h1>
+            </div>
+            <!-- <div class="container-fluid"> -->
+            <div class="building-img">
+                <div class="container">
+
+                </div>
+
+                <!-- </div>
+            <div class="container">
+                <div class="building-bar">
+                    <div class="building-bar__img">
+                        <img src="./img/Rectangle 44.png" alt="image">
+                    </div>
+                    <div class="building-bar__info">
+                        <div class="building-bar__info-text">
+                            <h1 class="section-title"><span class="blue-circle">•</span>Может показаться, что небо
+                                темнеет</h1>
+                            <h5 class="second-title"><span class="blue-circle">•</span>Может показаться, что небо
+                                темнеет</h4>
+                                <p>И нет сомнений, что многие известные личности являются только методом
+                                    политического
+                                    участия и объективно рассмотрены соответствующими инстанциями.</p>
+                                <div class="building-link">
+                                    <a href="##">
+                                        <h3 class="section-link">След. <img src="./img/Group 51.png" alt="next">
+                                        </h3>
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-575">
+                    <p class="section-text">
+                        И нет сомнений, что многие известные личности являются только методом
+                        политического
+                        участия и объективно рассмотрены соответствующими инстанциями.
+                    </p>
+                    <div class="building-link">
+                        <h3 class="section-link">След. <img src="./img/Group 51.png" alt="next"></h3>
+                    </div>
+                </div>
+
+            </div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Practics-->
+            <div class="practics">
+                <!-- <div class="container"> -->
+                <div class="practics-bar">
+                    <div class="practics-info">
+                        <h1 class="section-title mb-20"><span class="blue-circle">•</span>ВОТ ТАК ПРОХОДИТ ПРАКТИКА
+                            У
+                            НАШИХ БУДУЩИХ ЖУРНАЛИСТОВ</h1>
+                        <h4 class="mb-20">
+                            {{ practice.phrase }}
+                        </h4>
+                        <p class="section-text">{{ practice.text1 }}</p>
+                        <p class="section-text">{{ practice.text2 }}</p>
+                    </div>
+                    <div class="practics-img">
+                        <div class="practics-img__item">
+                            <img src="{{ practice.image1.url }}" alt="image">
+                        </div>
+                        <div class="practics-img__item practics-img__vertical">
+                            <img src="{{ practice.image2.url }}" alt="image" style="margin-bottom: 40px;">
+                            <img src="{{ practice.image3.url }}" alt="image" style="margin-top: 40px;">
+                        </div>
+                        <div class="practics-img__item">
+                            <img src="{{ practice.image4.url }}" alt="image">
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+            </section>
+
+            <!-- Science section-->
+            <section class="science" id="science">
+                <!-- <div class="container"> -->
+                <h1 class="section-title important-title none-575"><span class="blue-circle">•</span>Наука</h1>
+                <h1 class="section-title mb-20 none-575"><span class="blue-circle">•</span>{{ science.one_list }}</h1>
+                <div class="science-seminar">
+                    <div class="science-seminar__img">
+                        <img src="{{ science.image1.url }}" alt="image">
+                    </div>
+                    <div class="science-seminar__text">
+                        <p class="section-text">{{ science.text1 }}</p>
+                        <p class="section-text none-767">{{ science.text2 }}</p>
+                    </div>
+                </div>
+                <p class="section-text max-767 none-575">{{ science.text2 }}</p>
+
+                <!-- Carusel science  -->
+                <div class="science-575">
+                    <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Наука</h1>
+                    <div id="carouselExampleIndicators4" class="carousel slide carusel-button"
+                         data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="1"
+                                    aria-label="Slide 0"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active science-carusel">
+                                <img src="{{ science.image1.url }}" alt="science-carusel-img">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ science.image2.url }}" alt="science-carusel-img">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators4" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators4" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <p class="section-text max-575 scince-text-375">{{ science.text2 }}</p>
+            </section>
+
+            <!-- Science-Conference section-->
+            <div class="science-conference">
+                <h1 class="section-title mb-20 important-title"><span class="blue-circle">•</span>Конференции</h1>
+                <div class="science-conference__item">
+                    <div class="science-conference__info1">
+                        <div class="science-conference__info-card">
+                            <div class="science-conference__img">
+                                <img src="{{ conference.image1.url }}" alt="image">
+                            </div>
+                            <div class="science-conference__text">
+                                <p class="section-text">{{ conference.text1 }}</p>
+                            </div>
+                        </div>
+                        <div class="science-conference__info2-img">
+                            <img src="{% static 'img/XJF.png' %}" alt="image">
+                        </div>
+
+                    </div>
+                    <div class="science-conference__info2">
+
+                        <div class="science-conference__info-card">
+                            <div class="science-conference__img">
+                                <img src="{{ conference.image2.url }}" alt="image">
+                            </div>
+                            <div class="science-conference__text">
+                                <p class="section-text">{{ conference.text2 }}</p>
+                            </div>
+                        </div>
+                        <div class="science-conference__info-card">
+                            <div class="science-conference__img">
+                                <img src="{{ conference.image3.url }}" alt="image">
+                            </div>
+                            <div class="science-conference__text">
+                                <p class="section-text">{{ conference.text3 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Conference slider  -->
+            <div class="container conference-575">
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Конференции</h1>
+                <div id="carouselExampleIndicators5" class="carousel slide carusel-button" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="2"
+                                aria-label="Slide 0"></button>
+                    </div>
+                    <div class="carousel-inner science-carusel">
+                        <div class="carousel-item active ">
+                            <div class="science-conference__info-card">
+                                <div class="science-conference__img">
+                                    <img src="{{ conference.image1.url }}" alt="image">
+                                </div>
+                                <div class="science-conference__text">
+                                    <p class="section-text">{{ conference.text1 }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="science-conference__info-card">
+                                <div class="science-conference__img">
+                                    <img src="{{ conference.image2.url }}" alt="image">
+                                </div>
+                                <div class="science-conference__text">
+                                    <p class="section-text">{{ conference.text2 }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="science-conference__info-card">
+                                <div class="science-conference__img">
+                                    <img src="{{ conference.image3.url }}" alt="image">
+                                </div>
+                                <div class="science-conference__text">
+                                    <p class="section-text">{{ conference.text3 }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators5"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators5"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- </div> -->
+            <!-- /Science section-->
+
+            <!-- Gallery-->
+            <div class="gallery">
+                <!-- <div class="container"> -->
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Галерея</h1>
+                <div class="gallery-items">
+                    <div class="gallery-item">
+                        <div class="gallery-row">
+                            <div class="modal-item">
+                                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                    <img src="{{ gallery.image1.url }}" class="gallery-img" alt="image56">
+                                </a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal1" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel1">Gallery</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="{{ gallery.image1.url }}" alt="img55"
+                                                     class="modal-row__img">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close
+                                                </button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-item">
+                                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                    <img src="{{ gallery.image2.url }}" class="gallery-img" alt="image54">
+                                </a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel2">Gallery</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="{{ gallery.image2.url }}" alt="img58"
+                                                     class="modal-row__img">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close
+                                                </button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                <img src="{{ gallery.image3.url }}" class="gallery-img" alt="image57">
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal3" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel3">Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ gallery.image3.url }}" alt="img75">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                                <img src="{{ gallery.image4.url }}" class="gallery-img" alt="image58">
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal4" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel4" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel4">Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ gallery.image4.url }}" alt="img58">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="modal-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                                <img src="{{ gallery.image5.url }}" class="gallery-img" alt="image53">
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal5" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel5" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel5">Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ gallery.image5.url }}" alt="img53">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+                                <img src="{{ gallery.image6.url }}" class="gallery-img"
+                                     alt="Rectangle 58 (1)">
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal6" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel6" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel6">Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ gallery.image6.url }}" alt="Rectangle 58 (1)">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal7">
+                                <img src="{{ gallery.image7.url }}" class="gallery-img" alt="image60">
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal7" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel7" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel7">Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ gallery.image7.url }}"
+                                                 class="gallery-img__important"
+                                                 alt="img60">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="modal-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal8">
+                                <img src="{{ gallery.image8.url }}" class="gallery-img" class="gallery-img"
+                                     alt="image61">
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal8" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel8" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel8">Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ gallery.image8.url }}" alt="img61">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                                <img src="{{ gallery.image9.url }}" class="gallery-img" alt="image62">
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal9" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel9" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel9">Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ gallery.image9.url }}" alt="img62">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal10">
+                                <img src="{{ gallery.image10.url }}" class="gallery-img" alt="image59">
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal10" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel10" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel10">Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ gallery.image10.url }}" alt="img59">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save
+                                                changes
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal11">
+                                <img src="{{ gallery.image11.url }}" class="gallery-img" alt="image63">
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal11" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel11" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel11">Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ gallery.image11.url }}" alt="img63">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save
+                                                changes
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+
+            <!-- Gallery slayder -->
+            <div class="gallery-575">
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Галерея
+                </h1>
+                <div id="carouselExampleIndicators6" class="carousel slide carusel-button" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+
+
+                    </div>
+                    <div class="carousel-inner gallery-carusel">
+                        <div class="carousel-item active">
+                            <div class="gallery-carusel__item">
+                                <img src="{{ gallery.image5.url }}" alt="image">
+                            </div>
+
+                        </div>
+                        <div class="carousel-item">
+                            <div class="gallery-carusel__item">
+                                <img src="{{ gallery.image6.url }}" alt="image">
+                            </div>
+
+                        </div>
+                        <div class="carousel-item">
+                            <div class="gallery-carusel__item">
+                                <img src="{{ gallery.image10.url }}" alt="image">
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators6"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators6"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- /Gallery section-->
+
+
+            <!-- Applicants section-->
+            <section class="application" id="application">
+                <div class="direction">
+                    <!-- <div class="container"> -->
+                    <div class="important-title">
+                        <h1 class="section-title"><span class="blue-circle">•</span>Абитуриентам</h1>
+                    </div>
+                    <h1 class="section-title"><span class="blue-circle">•</span>Направления</h1>
+                    <!-- </div> -->
+                </div>
+
+                <!-- <div class="container-fluid"> -->
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                    {% for answer in answers %}
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading{{ answer.pk }}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapse{{ answer.pk }}" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                <div class="accordion-info">
+                                    <h4 class="second-title">{{ answer.question }}
+                                    </h4>
+                                    <p class="accordion-text">узнать подробнее</p>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse{{ answer.pk }}" class="accordion-collapse collapse"
+                             aria-labelledby="flush-heading{{ answer.pk }}" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                {{ answer.answer }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+{#                    <div class="accordion-item">#}
+{#                        <h2 class="accordion-header" id="flush-headingTwo">#}
+{#                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"#}
+{#                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"#}
+{#                                    aria-controls="flush-collapseTwo">#}
+{#                                <div class="accordion-info">#}
+{#                                    <h4 class="second-title">Международная журналистика и связь с общественностью#}
+{#                                    </h4>#}
+{#                                    <p class="accordion-text">узнать подробнее</p>#}
+{#                                </div>#}
+{#                            </button>#}
+{#                        </h2>#}
+{#                        <div id="flush-collapseTwo" class="accordion-collapse collapse"#}
+{#                             aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">#}
+{#                            <div class="accordion-body">#}
+{#                                <strong>This is the first item's accordion body.</strong> It is shown by default,#}
+{#                                until#}
+{#                                the collapse plugin adds the appropriate classes that we use to style each element.#}
+{#                                These classes control the overall appearance, as well as the showing and hiding via#}
+{#                                CSS#}
+{#                                transitions. You can modify any of this with custom CSS or overriding our default#}
+{#                                variables. It's also worth noting that just about any HTML can go within the#}
+{#                                <code>.accordion-body</code>, though the transition does limit overflow.#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="accordion-item">#}
+{#                        <h2 class="accordion-header" id="flush-headingThree">#}
+{#                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"#}
+{#                                    data-bs-target="#flush-collapseThree" aria-expanded="false"#}
+{#                                    aria-controls="flush-collapseThree">#}
+{#                                <div class="accordion-info">#}
+{#                                    <h4 class="second-title">Международная журналистика и связь с общественностью#}
+{#                                    </h4>#}
+{#                                    <p class="accordion-text">узнать подробнее</p>#}
+{#                                </div>#}
+{#                            </button>#}
+{#                        </h2>#}
+{#                        <div id="flush-collapseThree" class="accordion-collapse collapse"#}
+{#                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">#}
+{#                            <div class="accordion-body">Placeholder content for this accordion, which is intended to#}
+{#                                demonstrate the <code>.accordion-flush</code> class. This is the third item's#}
+{#                                accordion#}
+{#                                body. Nothing more exciting happening here in terms of content, but just filling up#}
+{#                                the#}
+{#                                space to make it look, at least at first glance, a bit more representative of how#}
+{#                                this#}
+{#                                would#}
+{#                                look in a real-world application.#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+                </div>
+                <!-- </div> -->
+                <div class="questions" id="questions">
+                    <!-- <div class="container"> -->
+                    <div class="important-title">
+                        <h1 class="section-title"><span class="blue-circle">•</span>Часто задаваемые вопросы</h1>
+                    </div>
+                    <div class="accordion accordion-flush" id="accordionFlushExample2">
+
+                        {% for question in questions %}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne2{{ question.pk }}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne2{{ question.pk }}" aria-expanded="false"
+                                        aria-controls="flush-collapseOne2{{ question.pk }}">
+                                    <div class="accordion-info">
+                                        <p class="section-text">{{ question.question }}</p>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne2{{ question.pk }}" class="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingOne2{{ question.pk }}" data-bs-parent="#accordionFlushExample2">
+                                <div class="accordion-body">
+                                    {{ question.answer }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+{#                        <div class="accordion-item">#}
+{#                            <h2 class="accordion-header" id="flush-headingTwo2">#}
+{#                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"#}
+{#                                        data-bs-target="#flush-collapseTwo2" aria-expanded="false"#}
+{#                                        aria-controls="flush-collapseTwo2">#}
+{#                                    <div class="accordion-info">#}
+{#                                        <p class="section-text">Где находится факультет журналситики?</p>#}
+{#                                    </div>#}
+{#                                </button>#}
+{#                            </h2>#}
+{#                            <div id="flush-collapseTwo2" class="accordion-collapse collapse"#}
+{#                                 aria-labelledby="flush-headingTwo2" data-bs-parent="#accordionFlushExample2">#}
+{#                                <div class="accordion-body">#}
+{#                                    <strong>This is the first item's accordion body.</strong> It is shown by#}
+{#                                    default,#}
+{#                                    until#}
+{#                                    the collapse plugin adds the appropriate classes that we use to style each#}
+{#                                    element.#}
+{#                                    These classes control the overall appearance, as well as the showing and hiding#}
+{#                                    via#}
+{#                                    CSS#}
+{#                                    transitions. You can modify any of this with custom CSS or overriding our#}
+{#                                    default#}
+{#                                    variables. It's also worth noting that just about any HTML can go within the#}
+{#                                    <code>.accordion-body</code>, though the transition does limit overflow.#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="accordion-item">#}
+{#                            <h2 class="accordion-header" id="flush-headingThree2">#}
+{#                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"#}
+{#                                        data-bs-target="#flush-collapseThree2" aria-expanded="false"#}
+{#                                        aria-controls="flush-collapseThree2">#}
+{#                                    <div class="accordion-info">#}
+{#                                        <p class="section-text">Где находится факультет журналситики?</p>#}
+{#                                    </div>#}
+{#                                </button>#}
+{#                            </h2>#}
+{#                            <div id="flush-collapseThree2" class="accordion-collapse collapse"#}
+{#                                 aria-labelledby="flush-headingThree2" data-bs-parent="#accordionFlushExample2">#}
+{#                                <div class="accordion-body">Placeholder content for this accordion, which is#}
+{#                                    intended to#}
+{#                                    demonstrate the <code>.accordion-flush</code> class. This is the third item's#}
+{#                                    accordion#}
+{#                                    body. Nothing more exciting happening here in terms of content, but just filling#}
+{#                                    up#}
+{#                                    the#}
+{#                                    space to make it look, at least at first glance, a bit more representative of#}
+{#                                    how#}
+{#                                    this would#}
+{#                                    look in a real-world application.#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </section>
+            <!-- /Applicants section-->
+
+            <!-- answer section-->
+            <section class="answer" id="answer">
+                <!-- <div class="container"> -->
+                <div class="answer-title">
+                    <div class="important-title">
+                        <h1 class="section-title"><span class="blue-circle">•</span>Остались вопросы?</h1>
+                    </div>
+                    <p class="section-text">
+                        Если у вас всё ещё есть вопросы вы можете оставить свои данные по которым мы можем свами
+                        связаться и
+                        в скором времени мы с вами свяжемся. Или вы всегда можете позвонить нам или написать в
+                        телеграм.
+                    </p>
+                </div>
+                <div class="answer-bar" id="contact">
+                    <div class="answer-request">
+                        <h1 class="section-title"><span class="blue-circle">•</span>Оставте заявку</h1>
+                        <form class="answer-form" method="post" action="{% url 'send_message' %}">
+                            {% csrf_token %}
+                            <input name="email" class="email" type="email" placeholder="Email">
+                            <input name="phone" class="number" type="tel" placeholder="Введите ваш номер">
+                            <input name="name" type="text" placeholder="Имя">
+                            <div class="form-check">
+{#                                <input type="checkbox" name="answer-checkbox">#}
+{#                                <label for="answer-checkbox">#}
+{#                                    Я ознакомился с политикой конфиденциальности исогласен на обработкумоих данных#}
+{#                                </label>#}
+                            </div>
+                            <button class="button" type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="answer-map">
+                        <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12288.882050319484!2d66.9438219335551!3d39.64475156733675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f4d191960077df7%3A0x487636d9d13f2f57!2z0KHQsNC80LDRgNC60LDQvdC0LCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1622876587988!5m2!1sru!2s"
+                                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </section>
+            <!-- /answer section-->
+
+            <!-- footer section-->
+            <footer class="footer">
+                <!-- <div class="container"> -->
+                <nav class="footer-navbar">
+                    <div class="footer-brand">
+                        <a href="#">
+                            <img src="{% static 'img/logo.png' %}" alt="logo">
+                        </a>
+
+                    </div>
+                    <ul class="footer-nav__items">
+                        <li class="footer-nav__item">
+                            <a href="#about-me">О нас</a>
+                        </li>
+                        <li class="footer-nav__item">
+                            <a href="#science">Наука</a>
+                        </li>
+                        <li class="footer-nav__item">
+                            <a href="#application">Абитуриентам</a>
+                        </li>
+                        <li class="footer-nav__item">
+                            <a href="#questions">Вопросы и ответы</a>
+                        </li>
+                        <li class="footer-nav__item">
+                            <a href="#contact">Контакты</a>
+                        </li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="##">
+                            <img src="{% static 'img/ic_facebook.svg' %}" alt="Facebook">
+                        </a>
+                        <a href="##">
+                            <img src="{% static 'img/ic_instagram.svg' %}" alt="Instagram">
+                        </a>
+                        <a href="##">
+                            <img src="{% static 'img/ic_telegram.svg' %}" alt="Telegram">
+                        </a>
+                    </div>
+                    <div class="footer-rights">
+                        <a href="##">© 2018. All rights reserved</a>
+                    </div>
+                </nav>
+            </footer>
+            <!-- /footer section-->
+        </div>
+
+    </div>
+</div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>
