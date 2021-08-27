@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: .\templates\index.html:9
-msgid "Facultet site"
+msgid "Сайт факультета"
 msgstr ""
 
 #: .\templates\index.html:62
