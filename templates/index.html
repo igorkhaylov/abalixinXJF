@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static i18n %}
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facultet site </title>
+    <title>{% trans "Сайт факультета" %}</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <!-- Google fonts-->
@@ -59,33 +59,211 @@
                     <a href="#"><img src="{% static 'img/logo.png' %}" alt="Brand"></a>
                 </div>
                 <div class="header-phone">
-                    <a href="tel:+998712999999"><strong>Тел: +99871 299 99 99</strong></a>
+                    <a href="tel:+998712999999"><strong>{% trans 'Тел:' %} +99871 299 99 99</strong></a>
                 </div>
             </div>
             <nav class="header-nav">
                 <ul class="header-nav__items">
                     <li class="header-nav__item">
-                        <a href="#about-me">О нас</a>
+                        <a href="#about-me">{% trans 'О нас' %}</a>
                     </li>
                     <li class="header-nav__item">
-                        <a href="#science">Наука</a>
+                        <a href="#science">{% trans 'Наука' %}</a>
                     </li>
                     <li class="header-nav__item">
-                        <a href="#application">Абитуриентам</a>
+                        <a href="#application">{% trans 'Абитуриентам' %}</a>
                     </li>
                     <li class="header-nav__item">
-                        <a href="#questions">Вопросы и ответы</a>
+                        <a href="#questions">{% trans 'Вопросы и ответы' %}</a>
                     </li>
                     <li class="header-nav__item">
-                        <a href="#contact">Контакты</a>
+                        <a href="#contact">{% trans 'Контакты' %}</a>
                     </li>
                 </ul>
-                <div class="langs">
-                    <select name="lang" id="ru">
-                        <option value="ru"><a href="##">RU</a></option>
-                        <option value="en"><a href="##">EN</a></option>
-                    </select>
-                </div>
+
+
+
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+
+
+
+                <label class="dropdown">
+                    <div class="dd-button">
+                        {{ LANGUAGE_CODE }}
+                    </div>
+                    <input type="checkbox" class="dd-input" id="test">
+                    <ul class="dd-menu">
+                        {% for language in languages %}
+                            {% if language.code != LANGUAGE_CODE %}
+                            <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+
+                                <select name="language" id="" hidden>
+                                                            <option value="{{ language.code }}"></option>
+                                                        </select>
+{#                                                        <input type="submit" value="{{ language.code }}">#}
+                                                        <button
+                                                                style="
+                                                                background: transparent;
+                                                                border: none;
+                                                                font-size: large;
+                                                                position: center;
+                                                                margin: 4px;
+                                                                padding-right: 0.5rem;
+                                                                padding-left: 0.5rem;
+
+
+"
+                                                                type="submit">{{ language.code }}</button>
+
+{#                            <li>{{ language.code }}</li>#}
+
+                            </form>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </label>
+
+
+
+{#                <div class="langs">#}
+{#                    <select name="lang">#}
+{#                        {% for language in languages %}#}
+{##}
+{#                            <option value="{{ language.code }}">#}
+{#                            <form action="{% url 'set_language' %}" method="post">#}
+{#                                {% csrf_token %}#}
+{#                                    <select name="language" id="" hidden>#}
+{#                                        <option value="{{ language.code }}"></option>#}
+{#                                    </select>#}
+{##}
+{#                                <button type="submit">{{ language.code }}</button>#}
+{##}
+{#                            </form>#}
+{#                            </option>#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#                        {% endfor %}#}
+{##}
+{##}
+{#                        <option value="en"><button href="##">EN</button></option>#}
+{#                    </select>#}
+{#                </div>#}
+
+
+
+
+
+{#                            <div class="langs">#}
+{#                                <select name="lang" id="ru">#}
+{#                                    {% for language in languages %}#}
+{#                                        <option value="ru"><a href="##">{{ language.code|capfirst }}</a></option>#}
+{#                                        <option value="en"><a href="##">EN</a></option>#}
+{#                                    {% endfor %}#}
+{#                                </select>#}
+{#                            </div>#}
+
+
+
+{#            <form action="{% url 'set_language' %}" method="post">#}
+{#                {% csrf_token %}#}
+{#                <div class="langs">#}
+{#                    <select name="lang">#}
+{##}
+{#                        {% for language in languages %}#}
+{#                            {% if language.code != LANGUAGE_CODE %}#}
+{#                            <form action="{% url 'set_language' %}" method="post">#}
+{#                                {% csrf_token %}#}
+{#                                <select name="language" id="" hidden>#}
+{#                                    <option value="{{ language.code }}"></option>#}
+{#                                </select>#}
+{#                                <button#}
+{#                                        style="background: transparent;#}
+{#                                               border: none;#}
+{#                                               font-size: large;#}
+{#                                               position: center;"#}
+{#                                        type="submit">{{ language.code }}#}
+{#                                </button>#}
+{#                            </form>#}
+{##}
+{##}
+{#                                <option value="ru"><a href="">{{ language.code }}</a></option>#}
+{#                            {% endif %}#}
+
+
+{#                        {% endfor %}#}
+
+
+{#                        <option value="ru"><a href="/ru">RU</a></option>#}
+{#                        <option value="en"><a href="/en">EN</a></option>#}
+{#                    </select>#}
+{#                </div>#}
+{#            </form>#}
+
+{#                                <input name="next" type="hidden" value="{{ redirect_to }}">#}
+{#                                    <li class="rd-nav-item dropdown">#}
+{#                                        <a class="rd-nav-link dropdown-toggle" data-toggle="dropdown" href="#"#}
+{#                                           role="button" aria-haspopup="true" aria-expanded="false">#}
+{#                                            {{ LANGUAGE_CODE }}#}
+{#                                        </a>#}
+{#                                        <div class="dropdown-menu">#}
+{#                                            {% for language in languages %}#}
+{#                                                {% if language.code != LANGUAGE_CODE %}#}
+{#                                                    <form action="{% url 'set_language' %}" method="post">#}
+{#                                                        {% csrf_token %}#}
+{#                                                        <select name="language" id="" hidden>#}
+{#                                                            <option value="{{ language.code }}"></option>#}
+{#                                                        </select>#}
+{#                                                        <input type="submit" value="{{ language.code }}">#}
+{#                                                        <button style="#}
+{#                                                                background: transparent;#}
+{#                                                                border: none;#}
+{#                                                                font-size: large;#}
+{#                                                                position: center;"#}
+{#                                                                type="submit">{{ language.code }}</button>#}
+{#                                                    </form>#}
+{#                                                {% endif %}#}
+{#                                            {% endfor %}#}
+{#                                        </div>#}
+{#                                    </li>#}
+{#                                </form>#}
+
+
+
+
+{#                                <form action="{% url 'set_language' %}" method="post">#}
+{#                                    {% csrf_token %}#}
+{#                                    <input name="next" type="hidden" value="{{ redirect_to }}">#}
+{#                                    <select name="language">#}
+{#                                        {% get_current_language as LANGUAGE_CODE %}#}
+{#                                        {% get_available_languages as LANGUAGES %}#}
+{#                                        {% get_language_info_list for LANGUAGES as languages %}#}
+{#                                        {% for language in languages %}#}
+{#                                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}#}
+{#                                                    selected{% endif %}>#}
+{#                                                {{ language.name_local }}#}
+{#                                                ({{ language.code }})#}
+{#                                            </option>#}
+{#                                        {% endfor %}#}
+{#                                    </select>#}
+{#                                    <input type="submit" value="Go">#}
+{#                                </form>#}
+
+
+
+
+
+{#                <div class="langs">#}
+{#                    <select name="lang" id="ru">#}
+{#                        <option value="ru"><a href="##">RU</a></option>#}
+{#                        <option value="en"><a href="##">EN</a></option>#}
+{#                    </select>#}
+{#                </div>#}
             </nav>
             <!-- </div> -->
         </header>
@@ -100,23 +278,23 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
+{#                            <li class="nav-item">#}
+{#                                <a class="nav-link active" aria-current="page" href="#">Home</a>#}
+{#                            </li>#}
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link" href="#about-me">{% trans 'О нас' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#about-me">О нас</a>
+                                <a class="nav-link" href="#science">{% trans 'Наука' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#science">Наука</a>
+                                <a class="nav-link" href="#application">{% trans 'Абитуриентам' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#application">Абитуриентам</a>
+                                <a class="nav-link" href="#questions">{% trans 'Вопросы и ответы' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#questions">Вопросы и ответы</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Контакты</a>
+                                <a class="nav-link" href="#contact">{% trans 'Контакты' %}</a>
                             </li>
                         </ul>
                     </div>
@@ -166,8 +344,8 @@
                             <img src="{{ firstblock.picture_facultet2.url }}" alt="Sumka">
                         </div>
                         <div class="about-me__info1-follow-item">
-                            <h4 class="about-me-title">Действует на протяжении <br/><span class="year-20">{{ firstblock.years }}</span>
-                                лет
+                            <h4 class="about-me-title">{% trans 'Действует на протяжении' %} <br/><span class="year-20">{{ firstblock.years }}</span>
+                                {% trans 'лет' %}
                             </h4>
                         </div>
                     </div>
@@ -193,7 +371,7 @@
 
             <!-- Rukovodstvo-->
                         <div class="rukovodstvo">
-                            <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Руководство
+                            <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>{% trans 'Руководство' %}
                             </h1>
                             <div id="carouselExampleIndicators1" class="carousel slide carusel-button" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
@@ -249,7 +427,7 @@
 
             <!-- Kafedra-->
             <div class="kafedra">
-                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>КАФЕДРЫ</h1>
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>{% trans 'КАФЕДРЫ' %}</h1>
                 {% for departamen in departament %}
                 <div class="kafedra-bar">
                     <h1 class="section-title mb-20">
@@ -279,7 +457,7 @@
 
             <!-- Professors-->
             <div class="professor">
-                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Профессоры</h1>
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>{% trans 'Профессоры' %}</h1>
                 <div id="carouselExampleIndicators2" class="carousel slide carusel-button" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0"
@@ -333,7 +511,7 @@
 
             <!-- Studied -->
             <div class="studied">
-                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>У нас учились</h1>
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>{% trans 'У нас учились' %}</h1>
                 <div id="carouselExampleIndicators3" class="carousel slide carusel-button" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0"
@@ -391,8 +569,7 @@
     <div class="container-fluid">
         <div class="building">
             <div class="container">
-                <h1 class="section-title"><span class="blue-circle">•</span>ЧТО ВАС ОЖИДАЕТ В НАШЕЙ БОЛЬШОЙ
-                    БИБЛИОТЕКЕ</h1>
+                <h1 class="section-title"><span class="blue-circle">•</span>{% trans 'ЧТО ВАС ОЖИДАЕТ В НАШЕЙ БОЛЬШОЙ БИБЛИОТЕКЕ' %}</h1>
             </div>
             <!-- <div class="container-fluid"> -->
             <div class="building-img">
@@ -446,9 +623,7 @@
                 <!-- <div class="container"> -->
                 <div class="practics-bar">
                     <div class="practics-info">
-                        <h1 class="section-title mb-20"><span class="blue-circle">•</span>ВОТ ТАК ПРОХОДИТ ПРАКТИКА
-                            У
-                            НАШИХ БУДУЩИХ ЖУРНАЛИСТОВ</h1>
+                        <h1 class="section-title mb-20"><span class="blue-circle">•</span>{% trans 'ВОТ ТАК ПРОХОДИТ ПРАКТИКА У НАШИХ БУДУЩИХ ЖУРНАЛИСТОВ' %}</h1>
                         <h4 class="mb-20">
                             {{ practice.phrase }}
                         </h4>
@@ -475,7 +650,7 @@
             <!-- Science section-->
             <section class="science" id="science">
                 <!-- <div class="container"> -->
-                <h1 class="section-title important-title none-575"><span class="blue-circle">•</span>Наука</h1>
+                <h1 class="section-title important-title none-575"><span class="blue-circle">•</span>{% trans 'Наука' %}</h1>
                 <h1 class="section-title mb-20 none-575"><span class="blue-circle">•</span>{{ science.one_list }}</h1>
                 <div class="science-seminar">
                     <div class="science-seminar__img">
@@ -490,7 +665,7 @@
 
                 <!-- Carusel science  -->
                 <div class="science-575">
-                    <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Наука</h1>
+                    <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>{% trans 'Наука' %}</h1>
                     <div id="carouselExampleIndicators4" class="carousel slide carusel-button"
                          data-bs-ride="carousel">
                         <div class="carousel-indicators">
@@ -524,7 +699,7 @@
 
             <!-- Science-Conference section-->
             <div class="science-conference">
-                <h1 class="section-title mb-20 important-title"><span class="blue-circle">•</span>Конференции</h1>
+                <h1 class="section-title mb-20 important-title"><span class="blue-circle">•</span>{% trans 'Конференции' %}</h1>
                 <div class="science-conference__item">
                     <div class="science-conference__info1">
                         <div class="science-conference__info-card">
@@ -563,7 +738,7 @@
             </div>
             <!-- Conference slider  -->
             <div class="container conference-575">
-                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Конференции</h1>
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>{% trans 'Конференции' %}</h1>
                 <div id="carouselExampleIndicators5" class="carousel slide carusel-button" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="0"
@@ -626,7 +801,7 @@
             <!-- Gallery-->
             <div class="gallery">
                 <!-- <div class="container"> -->
-                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Галерея</h1>
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>{% trans 'Галерея' %}</h1>
                 <div class="gallery-items">
                     <div class="gallery-item">
                         <div class="gallery-row">
@@ -640,7 +815,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel1">Gallery</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel1">{% trans 'Галерея' %}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                             </div>
@@ -649,10 +824,8 @@
                                                      class="modal-row__img">
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close
-                                                </button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                                <button type="button" class="btn btn-primary">Save changes</button>#}
                                             </div>
                                         </div>
                                     </div>
@@ -668,7 +841,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel2">Gallery</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel2">{% trans 'Галерея' %}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                             </div>
@@ -677,10 +850,8 @@
                                                      class="modal-row__img">
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close
-                                                </button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                                <button type="button" class="btn btn-primary">Save changes</button>#}
                                             </div>
                                         </div>
                                     </div>
@@ -697,7 +868,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel3">Gallery</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel3">{% trans 'Галерея' %}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
@@ -705,10 +876,8 @@
                                             <img src="{{ gallery.image3.url }}" alt="img75">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                            <button type="button" class="btn btn-primary">Save changes</button>#}
                                         </div>
                                     </div>
                                 </div>
@@ -724,7 +893,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel4">Gallery</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel4">{% trans 'Галерея' %}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
@@ -732,10 +901,8 @@
                                             <img src="{{ gallery.image4.url }}" alt="img58">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                            <button type="button" class="btn btn-primary">Save changes</button>#}
                                         </div>
                                     </div>
                                 </div>
@@ -753,7 +920,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel5">Gallery</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel5">{% trans 'Галерея' %}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
@@ -761,10 +928,8 @@
                                             <img src="{{ gallery.image5.url }}" alt="img53">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                            <button type="button" class="btn btn-primary">Save changes</button>#}
                                         </div>
                                     </div>
                                 </div>
@@ -781,7 +946,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel6">Gallery</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel6">{% trans 'Галерея' %}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
@@ -789,10 +954,8 @@
                                             <img src="{{ gallery.image6.url }}" alt="Rectangle 58 (1)">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                            <button type="button" class="btn btn-primary">Save changes</button>#}
                                         </div>
                                     </div>
                                 </div>
@@ -808,7 +971,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel7">Gallery</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel7">{% trans 'Галерея' %}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
@@ -818,10 +981,8 @@
                                                  alt="img60">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                            <button type="button" class="btn btn-primary">Save changes</button>#}
                                         </div>
                                     </div>
                                 </div>
@@ -840,7 +1001,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel8">Gallery</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel8">{% trans 'Галерея' %}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
@@ -848,10 +1009,8 @@
                                             <img src="{{ gallery.image8.url }}" alt="img61">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                            <button type="button" class="btn btn-primary">Save changes</button>#}
                                         </div>
                                     </div>
                                 </div>
@@ -867,7 +1026,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel9">Gallery</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel9">{% trans 'Галерея' %}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
@@ -875,10 +1034,8 @@
                                             <img src="{{ gallery.image9.url }}" alt="img62">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                            <button type="button" class="btn btn-primary">Save changes</button>#}
                                         </div>
                                     </div>
                                 </div>
@@ -894,7 +1051,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel10">Gallery</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel10">{% trans 'Галерея' %}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
@@ -902,12 +1059,8 @@
                                             <img src="{{ gallery.image10.url }}" alt="img59">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Save
-                                                changes
-                                            </button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                            <button type="button" class="btn btn-primary">Save changes </button>#}
                                         </div>
                                     </div>
                                 </div>
@@ -923,7 +1076,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel11">Gallery</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel11">{% trans 'Галерея' %}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
@@ -931,12 +1084,8 @@
                                             <img src="{{ gallery.image11.url }}" alt="img63">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Save
-                                                changes
-                                            </button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Закрыть' %}</button>
+{#                                            <button type="button" class="btn btn-primary">Save changes </button>#}
                                         </div>
                                     </div>
                                 </div>
@@ -949,8 +1098,7 @@
 
             <!-- Gallery slayder -->
             <div class="gallery-575">
-                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>Галерея
-                </h1>
+                <h1 class="section-title important-title mb-20"><span class="blue-circle">•</span>{% trans 'Галерея' %} </h1>
                 <div id="carouselExampleIndicators6" class="carousel slide carusel-button" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="0"
@@ -1004,9 +1152,9 @@
                 <div class="direction">
                     <!-- <div class="container"> -->
                     <div class="important-title">
-                        <h1 class="section-title"><span class="blue-circle">•</span>Абитуриентам</h1>
+                        <h1 class="section-title"><span class="blue-circle">•</span>{% trans 'Абитуриентам' %}</h1>
                     </div>
-                    <h1 class="section-title"><span class="blue-circle">•</span>Направления</h1>
+                    <h1 class="section-title"><span class="blue-circle">•</span>{% trans 'Направления' %}</h1>
                     <!-- </div> -->
                 </div>
 
@@ -1023,7 +1171,7 @@
                                 <div class="accordion-info">
                                     <h4 class="second-title">{{ answer.question }}
                                     </h4>
-                                    <p class="accordion-text">узнать подробнее</p>
+                                    <p class="accordion-text">{% trans 'узнать подробнее' %}</p>
                                 </div>
                             </button>
                         </h2>
@@ -1093,7 +1241,7 @@
                 <div class="questions" id="questions">
                     <!-- <div class="container"> -->
                     <div class="important-title">
-                        <h1 class="section-title"><span class="blue-circle">•</span>Часто задаваемые вопросы</h1>
+                        <h1 class="section-title"><span class="blue-circle">•</span>{% trans 'Часто задаваемые вопросы' %}</h1>
                     </div>
                     <div class="accordion accordion-flush" id="accordionFlushExample2">
 
@@ -1182,30 +1330,25 @@
                 <!-- <div class="container"> -->
                 <div class="answer-title">
                     <div class="important-title">
-                        <h1 class="section-title"><span class="blue-circle">•</span>Остались вопросы?</h1>
+                        <h1 class="section-title"><span class="blue-circle">•</span>{% trans 'Остались вопросы?' %}</h1>
                     </div>
-                    <p class="section-text">
-                        Если у вас всё ещё есть вопросы вы можете оставить свои данные по которым мы можем свами
-                        связаться и
-                        в скором времени мы с вами свяжемся. Или вы всегда можете позвонить нам или написать в
-                        телеграм.
-                    </p>
+                    <p class="section-text">{% trans 'Если у вас всё ещё есть вопросы вы можете оставить свои данные по которым мы можем свами связаться и в скором времени мы с вами свяжемся. Или вы всегда можете позвонить нам или написать в телеграм.' %}</p>
                 </div>
                 <div class="answer-bar" id="contact">
                     <div class="answer-request">
-                        <h1 class="section-title"><span class="blue-circle">•</span>Оставте заявку</h1>
+                        <h1 class="section-title"><span class="blue-circle">•</span>{% trans 'Оставте заявку' %}</h1>
                         <form class="answer-form" method="post" action="{% url 'send_message' %}">
                             {% csrf_token %}
                             <input name="email" class="email" type="email" placeholder="Email">
-                            <input name="phone" class="number" type="tel" placeholder="Введите ваш номер">
-                            <input name="name" type="text" placeholder="Имя">
+                            <input name="phone" class="number" type="tel" placeholder="{% trans 'Введите ваш номер' %}">
+                            <input name="name" type="text" placeholder="{% trans 'Имя' %}">
                             <div class="form-check">
 {#                                <input type="checkbox" name="answer-checkbox">#}
 {#                                <label for="answer-checkbox">#}
 {#                                    Я ознакомился с политикой конфиденциальности исогласен на обработкумоих данных#}
 {#                                </label>#}
                             </div>
-                            <button class="button" type="submit">Отправить</button>
+                            <button class="button" type="submit">{% trans 'Отправить' %}</button>
                         </form>
                     </div>
                     <div class="answer-map">
@@ -1230,19 +1373,19 @@
                     </div>
                     <ul class="footer-nav__items">
                         <li class="footer-nav__item">
-                            <a href="#about-me">О нас</a>
+                            <a href="#about-me">{% trans 'О нас' %}</a>
                         </li>
                         <li class="footer-nav__item">
-                            <a href="#science">Наука</a>
+                            <a href="#science">{% trans 'Наука' %}</a>
                         </li>
                         <li class="footer-nav__item">
-                            <a href="#application">Абитуриентам</a>
+                            <a href="#application">{% trans 'Абитуриентам' %}</a>
                         </li>
                         <li class="footer-nav__item">
-                            <a href="#questions">Вопросы и ответы</a>
+                            <a href="#questions">{% trans 'Вопросы и ответы' %}</a>
                         </li>
                         <li class="footer-nav__item">
-                            <a href="#contact">Контакты</a>
+                            <a href="#contact">{% trans 'Контакты' %}</a>
                         </li>
                     </ul>
                     <div class="footer-social">

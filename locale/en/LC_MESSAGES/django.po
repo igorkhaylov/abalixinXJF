@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-27 14:23+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\index.html:9
+msgid "Сайт факультета"
+msgstr "Facultet site"
+
+#: .\templates\index.html:62
+msgid "Тел:"
+msgstr "Tel:"
+
+#: .\templates\index.html:68 .\templates\index.html:285
+#: .\templates\index.html:1376
+msgid "О нас"
+msgstr "About Us"
+
+#: .\templates\index.html:71 .\templates\index.html:288
+#: .\templates\index.html:653 .\templates\index.html:668
+#: .\templates\index.html:1379
+msgid "Наука"
+msgstr "Science"
+
+#: .\templates\index.html:74 .\templates\index.html:291
+#: .\templates\index.html:1155 .\templates\index.html:1382
+msgid "Абитуриентам"
+msgstr "For applicants"
+
+#: .\templates\index.html:77 .\templates\index.html:294
+#: .\templates\index.html:1385
+msgid "Вопросы и ответы"
+msgstr "Questions and answers"
+
+#: .\templates\index.html:80 .\templates\index.html:297
+#: .\templates\index.html:1388
+msgid "Контакты"
+msgstr "Contacts"
+
+#: .\templates\index.html:347
+msgid "Действует на протяжении"
+msgstr "Valid for"
+
+#: .\templates\index.html:348
+msgid "лет"
+msgstr "years"
+
+#: .\templates\index.html:374
+msgid "Руководство"
+msgstr "Management"
+
+#: .\templates\index.html:430
+msgid "КАФЕДРЫ"
+msgstr "DEPARTMENTS"
+
+#: .\templates\index.html:460
+msgid "Профессоры"
+msgstr "Professors"
+
+#: .\templates\index.html:514
+msgid "У нас учились"
+msgstr "They studied with us"
+
+#: .\templates\index.html:572
+msgid "ЧТО ВАС ОЖИДАЕТ В НАШЕЙ БОЛЬШОЙ БИБЛИОТЕКЕ"
+msgstr "WHAT AWAITS YOU IN OUR LARGE LIBRARY"
+
+#: .\templates\index.html:626
+msgid "ВОТ ТАК ПРОХОДИТ ПРАКТИКА У НАШИХ БУДУЩИХ ЖУРНАЛИСТОВ"
+msgstr "THIS IS HOW OUR FUTURE JOURNALISTS PRACTICE"
+
+#: .\templates\index.html:702 .\templates\index.html:741
+msgid "Конференции"
+msgstr "Conferences"
+
+#: .\templates\index.html:804 .\templates\index.html:818
+#: .\templates\index.html:844 .\templates\index.html:871
+#: .\templates\index.html:896 .\templates\index.html:923
+#: .\templates\index.html:949 .\templates\index.html:974
+#: .\templates\index.html:1004 .\templates\index.html:1029
+#: .\templates\index.html:1054 .\templates\index.html:1079
+#: .\templates\index.html:1101
+msgid "Галерея"
+msgstr "Gallery"
+
+#: .\templates\index.html:827 .\templates\index.html:853
+#: .\templates\index.html:879 .\templates\index.html:904
+#: .\templates\index.html:931 .\templates\index.html:957
+#: .\templates\index.html:984 .\templates\index.html:1012
+#: .\templates\index.html:1037 .\templates\index.html:1062
+#: .\templates\index.html:1087
+msgid "Закрыть"
+msgstr "Close"
+
+#: .\templates\index.html:1157
+msgid "Направления"
+msgstr "Education"
+
+#: .\templates\index.html:1174
+msgid "узнать подробнее"
+msgstr "learn more"
+
+#: .\templates\index.html:1244
+msgid "Часто задаваемые вопросы"
+msgstr "Frequently Asked Questions"
+
+#: .\templates\index.html:1333
+msgid "Остались вопросы?"
+msgstr "Have any questions?"
+
+#: .\templates\index.html:1335
+msgid ""
+"Если у вас всё ещё есть вопросы вы можете оставить свои данные по которым мы "
+"можем свами связаться и в скором времени мы с вами свяжемся. Или вы всегда "
+"можете позвонить нам или написать в телеграм."
+msgstr "If you still have questions, you can leave your data on which we "
+"can contact you and we will contact you soon. Or you can always "
+"call us or write in a telegram."
+
+#: .\templates\index.html:1339
+msgid "Оставте заявку"
+msgstr "Leave a request"
+
+#: .\templates\index.html:1343
+msgid "Введите ваш номер"
+msgstr "Your phone number"
+
+#: .\templates\index.html:1344
+msgid "Имя"
+msgstr "Name"
+
+#: .\templates\index.html:1351
+msgid "Отправить"
+msgstr "Send"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:221
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:207
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:222
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:230
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:231
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:239
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:240
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:249
+msgid "Connect, get help, or contribute"
+msgstr ""

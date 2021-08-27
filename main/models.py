@@ -18,27 +18,47 @@ class FirstBlock(models.Model):
     description_facultet3 = models.TextField("Description facultet 3", blank=False)
     picture_facultet3 = models.ImageField("Picture facultet 3", upload_to='media/first_block/', blank=False)
 
+    class Meta:
+        verbose_name = "Первый блок"
+        verbose_name_plural = "Первый блок"
+
 
 # Награды
 class AwardsManagement(models.Model):
     title = models.CharField("Name of", max_length=120, blank=True)
     management = models.ForeignKey("Management", on_delete=models.CASCADE, related_name="awards")
 
+    class Meta:
+        verbose_name = "Награда"
+        verbose_name_plural = "Награды"
+
 
 class AwardsProfessors(models.Model):
     title = models.CharField("Name of", max_length=120, blank=True)
     professors = models.ForeignKey("Professors", on_delete=models.CASCADE, related_name="awards")
+
+    class Meta:
+        verbose_name = "Награда"
+        verbose_name_plural = "Награды"
 
 
 class AwardsStudents(models.Model):
     title = models.CharField("Name of", max_length=120, blank=True)
     students = models.ForeignKey("Students", on_delete=models.CASCADE, related_name="awards")
 
+    class Meta:
+        verbose_name = "Награда"
+        verbose_name_plural = "Награды"
+
 
 # Руководство
 class Management(models.Model):
     picture = models.ImageField("Фотография", upload_to='media/management/')
     name = models.CharField("ФИО: ", max_length=120)
+
+    class Meta:
+        verbose_name = "Руководство"
+        verbose_name_plural = "Руководство"
 
 
 # Кафедры
@@ -49,6 +69,10 @@ class Departament(models.Model):
     text1 = models.TextField("Text 1")
     text2 = models.TextField("Text 2")
 
+    class Meta:
+        verbose_name = "Кафедра"
+        verbose_name_plural = "Кафедры"
+
 
 # Профессоры
 class Professors(models.Model):
@@ -56,12 +80,20 @@ class Professors(models.Model):
     post = models.TextField("Post", max_length=250)
     photo = models.ImageField("Photo", upload_to='media/professors/')
 
+    class Meta:
+        verbose_name = "Профессор"
+        verbose_name_plural = "Профессора"
+
 
 # У нас учились
 class Students(models.Model):
     name = models.CharField("ФИО", max_length=120)
     post = models.TextField("Post", max_length=250)
     photo = models.ImageField("Photo", upload_to='media/students')
+
+    class Meta:
+        verbose_name = "У нас учились"
+        verbose_name_plural = "У нас учились"
 
 
 class Practice(models.Model):
@@ -73,6 +105,10 @@ class Practice(models.Model):
     image3 = models.ImageField("Image 3", upload_to='media/practice')
     image4 = models.ImageField("Image 4", upload_to='media/practice')
 
+    class Meta:
+        verbose_name = "Практика"
+        verbose_name_plural = "Практика"
+
 
 class Science(models.Model):
     one_list = models.CharField("One list", max_length=120)
@@ -80,6 +116,10 @@ class Science(models.Model):
     image2 = models.ImageField("Image 2", upload_to='media/science')
     text1 = models.TextField("Text 1")
     text2 = models.TextField("Text 2")
+
+    class Meta:
+        verbose_name = "Наука"
+        verbose_name_plural = "Наука"
 
 
 class Conference(models.Model):
@@ -90,6 +130,10 @@ class Conference(models.Model):
     text2 = models.TextField("Text 2")
     image3 = models.ImageField("Image 3", upload_to='media/conference')
     text3 = models.TextField("Text 3")
+
+    class Meta:
+        verbose_name = "Конференции"
+        verbose_name_plural = "Конференции"
 
 
 class Gallery(models.Model):
@@ -106,16 +150,28 @@ class Gallery(models.Model):
     image10 = models.ImageField("Image 10", upload_to='media/gallery/')
     image11 = models.ImageField("Image 11", upload_to='media/gallery/')
 
+    class Meta:
+        verbose_name = "Галерея"
+        verbose_name_plural = "Галерея"
+
 
 class Answers(models.Model):
     title = models.CharField("Answers", max_length=120, default="Answers")
     question = models.CharField("Question", max_length=250)
     answer = models.TextField("Answer")
 
+    class Meta:
+        verbose_name = "Абитуриентам"
+        verbose_name_plural = "Абитуриентам"
+
 
 class Questions(models.Model):
     question = models.CharField("Question", max_length=250)
     answer = models.TextField("Answer")
+
+    class Meta:
+        verbose_name = "Часто задаваемые вопросы"
+        verbose_name_plural = "Часто задаваемые вопросы"
 
 
 
