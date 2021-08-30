@@ -31,6 +31,9 @@ class FirstBlockAdmin(TranslationAdmin):
     def has_add_permission(self, request):
         return False
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 @admin.register(Management)
 class ManagementAdmin(TranslationAdmin):
@@ -74,6 +77,9 @@ class PracticeAdmin(TranslationAdmin):
     def has_add_permission(self, request):
         return False
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 @admin.register(Science)
 class ScienceAdmin(TranslationAdmin):
@@ -81,6 +87,9 @@ class ScienceAdmin(TranslationAdmin):
     list_display_links = ('one_list', )
 
     def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
         return False
 
 
@@ -93,6 +102,9 @@ class ConferenceAdmin(TranslationAdmin):
     def has_add_permission(self, request):
         return False
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
@@ -101,6 +113,9 @@ class GalleryAdmin(admin.ModelAdmin):
     readonly_fields = ('title', )
 
     def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
         return False
 
 
