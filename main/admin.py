@@ -27,6 +27,10 @@ class FirstBlockAdmin(TranslationAdmin):
     readonly_fields = ('text', )
     save_on_top = True
 
+    # def response_add(self, request, obj, post_url_continue=None):
+    def has_add_permission(self, request):
+        return False
+
 
 @admin.register(Management)
 class ManagementAdmin(TranslationAdmin):
@@ -67,11 +71,17 @@ class PracticeAdmin(TranslationAdmin):
     list_display = ('phrase', )
     list_display_links = ('phrase', )
 
+    def has_add_permission(self, request):
+        return False
+
 
 @admin.register(Science)
 class ScienceAdmin(TranslationAdmin):
     list_display = ('one_list', )
     list_display_links = ('one_list', )
+
+    def has_add_permission(self, request):
+        return False
 
 
 @admin.register(Conference)
@@ -80,12 +90,18 @@ class ConferenceAdmin(TranslationAdmin):
     list_display_links = ('conference', )
     readonly_fields = ('conference', )
 
+    def has_add_permission(self, request):
+        return False
+
 
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ('title', )
     list_display_links = ('title', )
     readonly_fields = ('title', )
+
+    def has_add_permission(self, request):
+        return False
 
 
 @admin.register(Answers)

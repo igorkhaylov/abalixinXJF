@@ -22,6 +22,9 @@ class FirstBlock(models.Model):
         verbose_name = "Первый блок"
         verbose_name_plural = "Первый блок"
 
+    def __str__(self):
+        return self.text + ': ВНИМАНИЕ!!! Не создавайте больше одного блока'
+
 
 # Награды
 class AwardsManagement(models.Model):
